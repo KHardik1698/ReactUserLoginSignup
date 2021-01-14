@@ -1,8 +1,9 @@
 import { Component } from "react";
 import authenticateUrl from "../../apiCalls/ApiCalls";
 import Home from "../Home";
-import Loading from "../../components/Loading";
+import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import Loading from "../../components/Loading";
 
 class Login extends Component {
   state = {
@@ -55,6 +56,7 @@ class Login extends Component {
               <Loading />
             ) : (
               <div>
+                <Header />
                 <h1>Login Page</h1>
                 <form onSubmit={this.loginUser}>
                   <div>
