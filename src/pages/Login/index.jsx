@@ -1,4 +1,5 @@
 import { Component } from "react";
+import authenticateUrl from "../../apiCalls/ApiCalls";
 
 class Login extends Component {
   state = {
@@ -6,6 +7,27 @@ class Login extends Component {
   };
   loginUser = (event) => {
     event.preventDefault();
+    let bodyObject = {
+      email: event.target.email.value,
+      password: event.target.password.value,
+    };
+    fetch(authenticateUrl + "users/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      mode: "cors",
+      body: JSON.stringify(bodyObject),
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
   render() {
     return (
