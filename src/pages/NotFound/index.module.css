@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+}
+.not-found-container {
+  width: 80vw;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+.back-button button {
+  border: 1px solid black;
+  border-radius: 50%;
+  padding: 5vh 2vh;
+  font-size: 2vh;
+  background-color: black;
+  color: white;
+}
+.not-found-image {
+  width: 60%;
+  margin: 2vw 0px;
+}
+@media (max-width: 400px) {
+  .back-button button {
+    font-size: 1vh;
+    padding: 2vh 1vh;
+  }
+}
+@media (max-width: 200px) {
+  .back-button button {
+    font-size: 0.5vh;
+    padding: 1vh 0.5vh;
+  }
+}
