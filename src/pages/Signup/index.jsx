@@ -27,10 +27,13 @@ class Signup extends Component {
       .then((data) => {
         if (data.data) {
           this.setState({ signedUp: true });
-          alert(data.status);
         } else {
           this.setState({ signedUp: false });
-          alert(data.status);
+        }
+        if (data.status === "Successful") {
+          alert("Signup Successful");
+        } else {
+          alert(`Signup Failed : ${data.message}`);
         }
       })
       .catch((err) => {

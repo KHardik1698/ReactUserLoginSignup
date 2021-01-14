@@ -26,10 +26,13 @@ class Login extends Component {
       .then((data) => {
         if (data.data) {
           this.setState({ loggedIn: true });
-          alert(data.status);
         } else {
           this.setState({ loggedIn: false });
-          alert(data.status);
+        }
+        if (data.status === "Successful") {
+          alert("Login Successful");
+        } else {
+          alert(`Login Failed : ${data.message}`);
         }
       })
       .catch((err) => {
