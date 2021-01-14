@@ -7,7 +7,7 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <Header />
+        <Header page={"home"} />
         <h1>Home Page</h1>
         <p>Login Successful</p>
         <Link to="/">

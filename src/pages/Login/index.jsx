@@ -49,14 +49,14 @@ class Login extends Component {
     return (
       <div>
         {this.state.loggedIn === true ? (
-          <Home />
+          <Home {...this.props} />
         ) : (
           <div>
             {this.state.submit === true ? (
               <Loading />
             ) : (
               <div>
-                <Header />
+                <Header page={"login"} />
                 <h1>Login Page</h1>
                 <form onSubmit={this.loginUser}>
                   <div>

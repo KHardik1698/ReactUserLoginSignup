@@ -53,7 +53,7 @@ class Signup extends Component {
           <Loading />
         ) : (
           <div>
-            <Header />
+            <Header page={"signup"} />
             <h1>Signup Page</h1>
             <form onSubmit={this.signupUser}>
               <div>

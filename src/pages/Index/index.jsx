@@ -7,7 +7,7 @@ class Index extends Component {
   render() {
     return (
       <div>
-        <Header />
+        <Header page={"index"} />
         <h1>Landing Page</h1>
         <Link to="/login">
           <p>Login</p>
