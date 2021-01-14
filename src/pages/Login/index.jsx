@@ -2,6 +2,7 @@ import { Component } from "react";
 import authenticateUrl from "../../apiCalls/ApiCalls";
 import Home from "../Home";
 import Loading from "../../components/Loading";
+import Footer from "../../components/Footer";
 
 class Login extends Component {
   state = {
@@ -69,6 +70,7 @@ class Login extends Component {
                     </button>
                   </div>
                 </form>
+                <Footer />
               </div>
             )}
           </div>

@@ -1,6 +1,7 @@
 import { Component } from "react";
 import authenticateUrl from "../../apiCalls/ApiCalls";
 import Loading from "../../components/Loading";
+import Footer from "../../components/Footer";
 
 class Signup extends Component {
   state = {
@@ -73,6 +74,7 @@ class Signup extends Component {
                 </button>
               </div>
             </form>
+            <Footer />
           </div>
         )}
       </div>

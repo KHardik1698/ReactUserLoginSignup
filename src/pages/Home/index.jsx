@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { Link } from "react-router-dom";
+import Footer from "../../components/Footer";
 
 class Home extends Component {
   render() {
@@ -16,6 +17,7 @@ class Home extends Component {
         <Link to="/signup">
           <p>Signup</p>
         </Link>
+        <Footer />
       </div>
     );
   }
