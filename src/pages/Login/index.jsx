@@ -1,5 +1,6 @@
 import { Component } from "react";
 import authenticateUrl from "../../apiCalls/ApiCalls";
+import Home from "../Home";
 
 class Login extends Component {
   state = {
@@ -37,21 +38,27 @@ class Login extends Component {
   render() {
     return (
       <div>
-        <h1>Login Page</h1>
-        <form onSubmit={this.loginUser}>
+        {this.state.loggedIn === true ? (
+          <Home />
+        ) : (
           <div>
-            <input type="text" name="email" placeholder="Enter Email" required />
-            <input type="password" name="password" placeholder="Enter Password" required />
+            <h1>Login Page</h1>
+            <form onSubmit={this.loginUser}>
+              <div>
+                <input type="text" name="email" placeholder="Enter Email" required />
+                <input type="password" name="password" placeholder="Enter Password" required />
+              </div>
+              <div>
+                <button type="submit" value="login">
+                  Login
+                </button>
+                <button type="reset" value="reset">
+                  Clear
+                </button>
+              </div>
+            </form>
           </div>
-          <div>
-            <button type="submit" value="login">
-              Login
-            </button>
-            <button type="reset" value="reset">
-              Clear
-            </button>
-          </div>
-        </form>
+        )}
       </div>
     );
   }
