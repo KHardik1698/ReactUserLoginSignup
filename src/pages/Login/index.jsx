@@ -24,6 +24,11 @@ class Login extends Component {
       })
       .then((data) => {
         console.log(data);
+        if (data.data) {
+          this.setState({ loggedIn: true });
+        } else {
+          this.setState({ loggedIn: false });
+        }
       })
       .catch((err) => {
         console.log(err);
