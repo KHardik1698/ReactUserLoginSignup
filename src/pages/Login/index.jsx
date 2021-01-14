@@ -24,11 +24,12 @@ class Login extends Component {
         return response.json();
       })
       .then((data) => {
-        console.log(data);
         if (data.data) {
           this.setState({ loggedIn: true });
+          alert(data.status);
         } else {
           this.setState({ loggedIn: false });
+          alert(data.status);
         }
       })
       .catch((err) => {

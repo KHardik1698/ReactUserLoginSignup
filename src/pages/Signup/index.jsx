@@ -25,11 +25,12 @@ class Signup extends Component {
         return response.json();
       })
       .then((data) => {
-        console.log(data);
         if (data.data) {
           this.setState({ signedUp: true });
+          alert(data.status);
         } else {
           this.setState({ signedUp: false });
+          alert(data.status);
         }
       })
       .catch((err) => {
