@@ -1,11 +1,14 @@
 import { Component } from "react";
 import authenticateUrl from "../../apiCalls/ApiCalls";
+import Loading from "../../components/Loading";
 
 class Signup extends Component {
   state = {
     signedUp: false,
+    submit: false,
   };
   signupUser = (event) => {
+    this.setState({ submit: true });
     event.preventDefault();
     let bodyObject = {
       email: event.target.email.value,
@@ -25,6 +28,7 @@ class Signup extends Component {
         return response.json();
       })
       .then((data) => {
+        this.setState({ submit: false });
         if (data.data) {
           this.setState({ signedUp: true });
         } else {
@@ -43,23 +47,34 @@ class Signup extends Component {
   render() {
     return (
       <div>
-        <h1>Signup Page</h1>
-        <form onSubmit={this.signupUser}>
+        {this.state.submit === true ? (
+          <Loading />
+        ) : (
           <div>
-            <input type="email" name="email" placeholder="Enter Email" required />
-            <input type="text" name="userName" placeholder="Enter User's Name" required />
-            <input type="password" name="password" placeholder="Enter Password" required />
-            <input type="password" name="confirmPassword" placeholder="Confirm Password" required />
+            <h1>Signup Page</h1>
+            <form onSubmit={this.signupUser}>
+              <div>
+                <input type="email" name="email" placeholder="Enter Email" required />
+                <input type="text" name="userName" placeholder="Enter User's Name" required />
+                <input type="password" name="password" placeholder="Enter Password" required />
+                <input
+                  type="password"
+                  name="confirmPassword"
+                  placeholder="Confirm Password"
+                  required
+                />
+              </div>
+              <div>
+                <button type="submit" value="login">
+                  Sign Up
+                </button>
+                <button type="reset" value="reset">
+                  Clear
+                </button>
+              </div>
+            </form>
           </div>
-          <div>
-            <button type="submit" value="login">
-              Sign Up
-            </button>
-            <button type="reset" value="reset">
-              Clear
-            </button>
-          </div>
-        </form>
+        )}
       </div>
     );
   }

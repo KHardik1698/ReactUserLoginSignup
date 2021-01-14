@@ -1,12 +1,15 @@
 import { Component } from "react";
 import authenticateUrl from "../../apiCalls/ApiCalls";
 import Home from "../Home";
+import Loading from "../../components/Loading";
 
 class Login extends Component {
   state = {
     loggedIn: false,
+    submit: false,
   };
   loginUser = (event) => {
+    this.setState({ submit: true });
     event.preventDefault();
     let bodyObject = {
       email: event.target.email.value,
@@ -24,6 +27,7 @@ class Login extends Component {
         return response.json();
       })
       .then((data) => {
+        this.setState({ submit: false });
         if (data.data) {
           this.setState({ loggedIn: true });
         } else {
@@ -46,21 +50,27 @@ class Login extends Component {
           <Home />
         ) : (
           <div>
-            <h1>Login Page</h1>
-            <form onSubmit={this.loginUser}>
+            {this.state.submit === true ? (
+              <Loading />
+            ) : (
               <div>
-                <input type="text" name="email" placeholder="Enter Email" required />
-                <input type="password" name="password" placeholder="Enter Password" required />
+                <h1>Login Page</h1>
+                <form onSubmit={this.loginUser}>
+                  <div>
+                    <input type="text" name="email" placeholder="Enter Email" required />
+                    <input type="password" name="password" placeholder="Enter Password" required />
+                  </div>
+                  <div>
+                    <button type="submit" value="login">
+                      Login
+                    </button>
+                    <button type="reset" value="reset">
+                      Clear
+                    </button>
+                  </div>
+                </form>
               </div>
-              <div>
-                <button type="submit" value="login">
-                  Login
-                </button>
-                <button type="reset" value="reset">
-                  Clear
-                </button>
-              </div>
-            </form>
+            )}
           </div>
         )}
       </div>
