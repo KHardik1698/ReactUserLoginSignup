@@ -8,35 +8,37 @@ class Header extends Component {
     navigation: [],
   };
   componentDidMount = (event) => {
-    let i = 0;
-    if (this.props.match.path === "/" && i < 1) {
-      i++;
-      let navigation = [
-        { link: "/login", name: "Login" },
-        { link: "/signup", name: "Signup" },
-      ];
-      this.setState({ navigation: navigation });
-    } else if (this.props.match.path === "/login" && i < 1) {
-      i++;
-      let navigation = [
-        { link: "/", name: "Home" },
-        { link: "/signup", name: "Signup" },
-      ];
-      this.setState({ navigation: navigation });
-    } else if (this.props.match.path === "/signup" && i < 1) {
-      i++;
-      let navigation = [
-        { link: "/", name: "Home" },
-        { link: "/login", name: "Login" },
-      ];
-      this.setState({ navigation: navigation });
-    } else if (this.props.match.path === "/home" && i < 1) {
-      i++;
-      let navigation = [
-        { link: "/login", name: "Home" },
-        { link: "/", name: "Logout" },
-      ];
-      this.setState({ navigation: navigation });
+    let componentDidMountCount = 0;
+    while (componentDidMountCount < 1) {
+      if (this.props.page === "index") {
+        componentDidMountCount++;
+        let navigation = [
+          { link: "/login", name: "Login" },
+          { link: "/signup", name: "Signup" },
+        ];
+        this.setState({ navigation: navigation });
+      } else if (this.props.page === "login") {
+        componentDidMountCount++;
+        let navigation = [
+          { link: "/", name: "Home" },
+          { link: "/signup", name: "Signup" },
+        ];
+        this.setState({ navigation: navigation });
+      } else if (this.props.page === "signup") {
+        componentDidMountCount++;
+        let navigation = [
+          { link: "/", name: "Home" },
+          { link: "/login", name: "Login" },
+        ];
+        this.setState({ navigation: navigation });
+      } else if (this.props.page === "home") {
+        componentDidMountCount++;
+        let navigation = [
+          { link: "/login", name: "Home" },
+          { link: "/", name: "Logout" },
+        ];
+        this.setState({ navigation: navigation });
+      }
     }
   };
   render() {
