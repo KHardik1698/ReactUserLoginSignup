@@ -45,15 +45,17 @@ class Header extends Component {
     return (
       <div className={styles["header-container"]}>
         <img className={styles["header-logo"]} src={HeaderLogo} alt="Header Icon" />
-        {this.state.navigation.map((nav, i) => {
-          return (
-            <ul key={i}>
-              <Link className={styles["nav-link"]} to={nav.link}>
-                <li className={styles["nav-item"]}>{nav.name}</li>
-              </Link>
-            </ul>
-          );
-        })}
+        <ul>
+          {this.state.navigation.map((nav, i) => {
+            return (
+              <div key={i}>
+                <Link className={styles["nav-link"]} to={nav.link}>
+                  <li className={styles["nav-item"]}>{nav.name}</li>
+                </Link>
+              </div>
+            );
+          })}
+        </ul>
       </div>
     );
   }
