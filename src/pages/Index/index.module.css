@@ -1,0 +1,11 @@
+.index-container {
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+h1,
+p {
+  margin: 2vh;
+}
