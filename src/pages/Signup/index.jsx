@@ -3,6 +3,7 @@ import authenticateUrl from "../../apiCalls/ApiCalls";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import Loading from "../../components/Loading";
+import styles from "./index.module.css";
 
 class Signup extends Component {
   state = {
@@ -54,28 +55,49 @@ class Signup extends Component {
         ) : (
           <div>
             <Header page={"signup"} />
-            <h1>Signup Page</h1>
-            <form onSubmit={this.signupUser}>
-              <div>
-                <input type="email" name="email" placeholder="Enter Email" required />
-                <input type="text" name="userName" placeholder="Enter User's Name" required />
-                <input type="password" name="password" placeholder="Enter Password" required />
-                <input
-                  type="password"
-                  name="confirmPassword"
-                  placeholder="Confirm Password"
-                  required
-                />
-              </div>
-              <div>
-                <button type="submit" value="login">
-                  Sign Up
-                </button>
-                <button type="reset" value="reset">
-                  Clear
-                </button>
-              </div>
-            </form>
+            <div className={styles["signup-container"]}>
+              <h1>Signup Page</h1>
+              <form onSubmit={this.signupUser} autoComplete="off">
+                <div className={styles["input-container"]}>
+                  <input
+                    className={styles["input-field"]}
+                    type="email"
+                    name="email"
+                    placeholder="Enter Email"
+                    required
+                  />
+                  <input
+                    className={styles["input-field"]}
+                    type="text"
+                    name="userName"
+                    placeholder="Enter User's Name"
+                    required
+                  />
+                  <input
+                    className={styles["input-field"]}
+                    type="password"
+                    name="password"
+                    placeholder="Enter Password"
+                    required
+                  />
+                  <input
+                    className={styles["input-field"]}
+                    type="password"
+                    name="confirmPassword"
+                    placeholder="Confirm Password"
+                    required
+                  />
+                </div>
+                <div className={styles["button-container"]}>
+                  <button className={styles["button"]} type="submit" value="login">
+                    Sign Up
+                  </button>
+                  <button className={styles["button"]} type="reset" value="reset">
+                    Clear
+                  </button>
+                </div>
+              </form>
+            </div>
             <Footer />
           </div>
         )}
