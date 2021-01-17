@@ -9,6 +9,7 @@ class Signup extends Component {
   state = {
     signedUp: false,
     submit: false,
+    email: "",
   };
   signupUser = (event) => {
     this.setState({ submit: true });
@@ -31,14 +32,15 @@ class Signup extends Component {
         return response.json();
       })
       .then((data) => {
-        this.setState({ submit: false });
+        this.setState({ submit: false, email: bodyObject.email });
         if (data.data) {
           this.setState({ signedUp: true });
         } else {
           this.setState({ signedUp: false });
         }
         if (data.status === "Successful") {
-          alert("Signup Successful");
+          alert(`Signup Successful, Welcome ${this.state.email}`);
+          this.props.history.push("/");
         } else {
           alert(`Signup Failed : ${data.message}`);
         }

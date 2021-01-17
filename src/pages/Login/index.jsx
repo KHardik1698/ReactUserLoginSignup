@@ -10,6 +10,7 @@ class Login extends Component {
   state = {
     loggedIn: false,
     submit: false,
+    email: "",
   };
   loginUser = (event) => {
     this.setState({ submit: true });
@@ -32,12 +33,12 @@ class Login extends Component {
       .then((data) => {
         this.setState({ submit: false });
         if (data.data) {
-          this.setState({ loggedIn: true });
+          this.setState({ loggedIn: true, email: bodyObject.email });
         } else {
           this.setState({ loggedIn: false });
         }
         if (data.status === "Successful") {
-          alert("Login Successful");
+          alert(`Login Successful, Welcome ${this.state.email}`);
         } else {
           alert(`Login Failed : ${data.message}`);
         }
@@ -50,7 +51,7 @@ class Login extends Component {
     return (
       <div>
         {this.state.loggedIn === true ? (
-          <Home {...this.props} />
+          <Home {...this.props} email={this.state.email} />
         ) : (
           <div>
             {this.state.submit === true ? (
