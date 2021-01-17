@@ -1,0 +1,89 @@
+.login-container {
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+h1 {
+  font-size: 30px;
+}
+.input-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.input-field {
+  height: 5vh;
+  width: 60vh;
+  font-size: 15px;
+  margin: 1vh auto;
+  border: none;
+  text-align: center;
+  background-color: aqua;
+}
+.button-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.button {
+  height: 4vh;
+  width: 20vh;
+  font-size: 12px;
+  margin: 1vh auto;
+  border: none;
+  background-color: aqua;
+}
+@media (max-width: 500px) {
+  .input-field {
+    width: 40vh;
+  }
+}
+@media (max-width: 400px) {
+  .input-field {
+    width: 30vh;
+    font-size: 12px;
+  }
+  .button {
+    width: 15vh;
+    font-size: 10px;
+  }
+}
+@media (max-width: 300px) {
+  .input-field {
+    width: 20vh;
+  }
+  .button {
+    width: 12vh;
+  }
+  h1 {
+    font-size: 25px;
+  }
+}
+@media (max-width: 200px) {
+  .input-field {
+    width: 15vh;
+    height: 4vh;
+  }
+  .button {
+    height: 3vh;
+  }
+  h1 {
+    font-size: 20px;
+  }
+}
+@media (max-width: 100px) {
+  .login-container {
+    height: 35vh;
+  }
+  .input-field,
+  .button {
+    width: 80vw;
+    font-size: 5px;
+  }
+  h1 {
+    font-size: 12px;
+    margin: 0px;
+  }
+}

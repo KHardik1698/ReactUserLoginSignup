@@ -4,6 +4,7 @@ import Home from "../Home";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import Loading from "../../components/Loading";
+import styles from "./index.module.css";
 
 class Login extends Component {
   state = {
@@ -55,23 +56,38 @@ class Login extends Component {
             {this.state.submit === true ? (
               <Loading />
             ) : (
-              <div>
+              <div className={styles["container"]}>
                 <Header page={"login"} />
-                <h1>Login Page</h1>
-                <form onSubmit={this.loginUser}>
-                  <div>
-                    <input type="text" name="email" placeholder="Enter Email" required />
-                    <input type="password" name="password" placeholder="Enter Password" required />
-                  </div>
-                  <div>
-                    <button type="submit" value="login">
-                      Login
-                    </button>
-                    <button type="reset" value="reset">
-                      Clear
-                    </button>
-                  </div>
-                </form>
+                <div className={styles["login-container"]}>
+                  <h1>User Login</h1>
+                  <form onSubmit={this.loginUser}>
+                    <div className={styles["input-container"]}>
+                      <input
+                        className={styles["input-field"]}
+                        type="text"
+                        name="email"
+                        placeholder="Enter Email"
+                        required
+                        // autoComplete="off"
+                      />
+                      <input
+                        className={styles["input-field"]}
+                        type="password"
+                        name="password"
+                        placeholder="Enter Password"
+                        required
+                      />
+                    </div>
+                    <div className={styles["button-container"]}>
+                      <button className={styles["button"]} type="submit" value="login">
+                        Login
+                      </button>
+                      <button className={styles["button"]} type="reset" value="reset">
+                        Clear
+                      </button>
+                    </div>
+                  </form>
+                </div>
                 <Footer />
               </div>
             )}
