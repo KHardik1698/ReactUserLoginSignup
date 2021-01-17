@@ -5,7 +5,35 @@
   justify-content: center;
   text-align: center;
 }
-h1,
+.index-container h1 {
+  margin: 2vh;
+  font-size: 25px;
+}
 p {
   margin: 2vh;
+  font-size: 18px;
+}
+@media (max-width: 200px) {
+  .index-container {
+    height: 40vh;
+  }
+  .index-container h1 {
+    font-size: 15px;
+  }
+  p {
+    font-size: 12px;
+  }
+}
+@media (max-width: 100px) {
+  .index-container {
+    height: 20vh;
+  }
+  .index-container h1 {
+    font-size: 10vw;
+    margin: 1vh;
+  }
+  p {
+    font-size: 10vw;
+    margin: 1vh;
+  }
 }

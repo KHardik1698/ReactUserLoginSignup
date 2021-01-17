@@ -56,11 +56,11 @@ class Login extends Component {
             {this.state.submit === true ? (
               <Loading />
             ) : (
-              <div className={styles["container"]}>
+              <div>
                 <Header page={"login"} />
                 <div className={styles["login-container"]}>
                   <h1>User Login</h1>
-                  <form onSubmit={this.loginUser}>
+                  <form onSubmit={this.loginUser} autoComplete="off">
                     <div className={styles["input-container"]}>
                       <input
                         className={styles["input-field"]}
@@ -68,7 +68,6 @@ class Login extends Component {
                         name="email"
                         placeholder="Enter Email"
                         required
-                        // autoComplete="off"
                       />
                       <input
                         className={styles["input-field"]}
