@@ -1,24 +1,17 @@
 import { Component } from "react";
-import { Link } from "react-router-dom";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import styles from "./index.module.css";
 
 class Home extends Component {
   render() {
     return (
-      <div>
+      <div className={styles["container"]}>
         <Header page={"home"} />
-        <h1>Home Page</h1>
-        <p>Login Successful</p>
-        <Link to="/">
-          <p>Main Page</p>
-        </Link>
-        <Link to="/login">
-          <p>Login</p>
-        </Link>
-        <Link to="/signup">
-          <p>Signup</p>
-        </Link>
+        <div className={styles["home-container"]}>
+          <h1>Home Page</h1>
+          <p>Login Successful, Welcome {this.props.email}</p>
+        </div>
         <Footer />
       </div>
     );
